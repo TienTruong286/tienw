@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Forecasting Google Stock Prices using Recurrent Neural Networks (RNN) from 2012 to 2017 </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <style>
+    .image {
+        max-width: 100%;
+        width: 600px; /* Adjust this value as per your requirement */
+        height: auto;
+    }
+
+    @media (max-width: 600px) { /* Adjust the max-width as per your requirements */
+    .navbar-brand img {
+      width: 340px;
+      height:60px
+    }
+  }
+
+   @media (max-width: 480px) { /* Adjust the max-width as needed */
+    video {
+      width: 320px; /* Set the width to 100% for smaller screens */
+      height: 170px; /* Allow the height to adjust proportionally */
+    }
+  }
+
+   .navbar{
+    --bs-navbar-padding-x: 0px!important;
+    --bs-navbar-padding-y: 0px!important;
+}
+</style>
+  <body>
+
+    <nav class="navbar bg-body-tertiary" >
+  <div class="container-fluid" style ="background-color :#023047; color:white; padding:20px">
+    <a class="navbar-brand" href="#">
+      <img src="logo20.png" alt="Logo" width="490" height="90" class="d-inline-block align-text-top" >
+      
+    </a>
+  </div>
+</nav>
+
+    <section class = "container" style ="margin-top: 20px;" >
+        <h2 style ="margin-bottom: 20px;">  Forecasting Google Stock Prices using Recurrent Neural Networks (RNN) from 2012 to 2017 </h2>
+        <hr >
+        <h3 > Introduction </h3>
+        <p>
+<div style ="margin-bottom: 10px;">
+Stock market prediction has always been a challenging task due to its complex and volatile nature. However, with advancements in machine learning and deep learning techniques, it has become possible to develop predictive models that can capture patterns and dependencies in stock price data. In this project, we aim to utilize Recurrent Neural Networks (RNN) to forecast the stock prices of Google (GOOGL) from 2012 to 2017.<br>
+
+RNNs are particularly well-suited for time-series forecasting tasks as they can effectively model sequential data by preserving information from previous time steps. This makes them suitable for capturing long-term dependencies and patterns that may exist in historical stock price data. By training an RNN model on a historical dataset, we can leverage its ability to learn from past price movements to make predictions about future stock prices. <br>
+</div>
+
+
+
+
+      
+
+<h3 style ="margin-top: 20px;"> Data Description</h3>
+<div style ="margin-bottom: 10px;">
+The project will utilize a historical dataset of Google stock prices spanning from 2012 to 2017. The dataset will consist of daily stock prices, including the opening price, closing price, highest price, lowest price, and trading volume. Additionally, the dataset may include any relevant macroeconomic indicators or news sentiment data that might impact stock prices.
+
+
+<h3 style ="margin-top: 20px;"> Project Steps </h3>
+<div style ="margin-bottom: 10px;">
+
+<ol>
+  <li><strong>Data Collection:</strong> Gather the historical stock price data for Google (GOOGL) from reliable sources, such as financial APIs, stock market databases, or online financial platforms. Retrieve the daily stock price information, specifically the "Open" price, for the desired time period.</li>
+  <li><strong>Data Preprocessing:</strong> Preprocess the train and test datasets separately. Extract the "Open" price feature from each dataset. Perform any necessary preprocessing steps, such as handling missing values.</li>
+  <li><strong>Feature Selection:</strong> Select the "Open" feature as the input for the stock price prediction task, as mentioned in the project requirements.</li>
+  <li><strong>Data Scaling:</strong> Apply MinMaxScaler from the scikit-learn library to scale the "Open" feature in both the train and test datasets. MinMaxScaler scales the data to a specific range, usually between 0 and 1, to ensure all values are on a similar scale.</li>
+  <li><strong>Prepare Input Sequences:</strong> Create input sequences of length 60, where each sequence represents the "Open" prices of the previous 60 days. Slide a window of length 60 over the preprocessed and scaled train dataset to create these sequences.</li>
+  <li><strong>LSTM Model Design:</strong> Design an LSTM architecture suitable for time-series forecasting. Configure the model to accept the input shape that matches the dimensions of the input sequences. Consider the number of LSTM layers, the number of LSTM units in each layer, and the appropriate activation functions.</li>
+  <li><strong>Model Training:</strong> Train the LSTM model using the prepared input sequences from the train dataset. Fit the model on the train data and adjust the model's parameters to minimize the loss function, such as Mean Squared Error (MSE) or Mean Absolute Error (MAE).</li>
+  <li><strong>Model Evaluation:</strong> Evaluate the trained model's performance using appropriate evaluation metrics, such as MSE or MAE, on the test dataset. Assess how well the model predicts the "Open" prices based on the input sequences from the test dataset.</li>
+  <li><strong>Prediction:</strong> Utilize the trained LSTM model to make predictions on the test dataset. Feed the input sequences from the test dataset into the model to obtain the predicted values.</li>
+  <li><strong>Inverse Scaling:</strong> Apply inverse scaling to the predicted values using the MinMaxScaler to bring them back to their original scale.</li>
+  <li><strong>Visualization and Analysis:</strong> Visualize the actual and predicted stock prices using plots or charts to assess the accuracy of the model's predictions. Analyze the trends, patterns, and any discrepancies between the actual and predicted values.</li>
+  <li><strong>Fine-tuning and Optimization:</strong> Iterate on the model design, hyperparameter tuning, and data preprocessing techniques to improve the LSTM model's accuracy. Experiment with different configurations, such as changing the number of LSTM layers, adjusting the learning rate, or applying regularization techniques.</li>
+</ol>
+<p>These steps outline the process of using LSTM for stock price prediction. By following these steps and iterating on the model design and parameters, you can develop an accurate and effective LSTM-based stock price prediction model.</p>
+</div>
+
+    </section>
+
+    <div class = "container">
+     <h3 style ="margin-top: 20px;"> Model History </h3>
+   
+    <img src="stock1.png" style="max-width: 100%">
+     <div style ="margin-bottom: 10px;">
+    A Mean Absolute Error (MAE) of 0.0018 after 100 epochs suggests that the LSTM model has achieved a relatively low level of error in predicting the "Open" prices of the stock. The MAE represents the average absolute difference between the predicted and actual values. In this case, an MAE of 0.0018 indicates that, on average, the model's predictions are off by approximately 0.0018 units from the actual values.
+    
+    </div>
+
+
+
+    </div>
+
+<div class="container">
+         <h3 style ="margin-top: 20px; margin-top: 10px;"> Visualization </h3>
+
+    <img src="stock2.png" style="max-width: 100%; margin-top: 10px;">
+    <div style ="margin-bottom: 10px;">
+<p>Upon analyzing the graph depicting the actual and predicted stock prices, several observations can be made:</p>
+<ol>
+  <li><strong>Overall Trend:</strong> The predicted stock prices closely follow the trend of the actual stock prices. This suggests that the model has captured the general direction of the stock's movement accurately.</li>
+  <li><strong>Accuracy:</strong> The predicted stock prices align closely with the actual values in most areas, indicating a high level of accuracy. However, there are a few instances where the predicted values deviate slightly from the actual values, indicating potential areas for improvement.</li>
+  <li><strong>Volatility:</strong> The model demonstrates the ability to capture the volatility in the stock prices. It accurately predicts fluctuations and sharp movements in the stock, mirroring the pattern observed in the actual data.</li>
+  <li><strong>Outliers:</strong> A few outliers can be observed in the graph, where the predicted values significantly deviate from the actual values. These outliers may represent instances where the model struggled to capture sudden market shifts or where external factors influenced the stock's behavior. Further investigation is required to understand the reasons behind these outliers.</li>
+  <li><strong>Long-Term Trends:</strong> The model performs well in capturing long-term trends in the stock prices. It accurately predicts the upward and downward trends, indicating its effectiveness in identifying the stock's overall trajectory.</li>
+  <li><strong>Short-Term Fluctuations:</strong> The model demonstrates the ability to capture short-term fluctuations in the stock prices, accurately predicting minor ups and downs. This suggests that it can be useful for short-term trading or monitoring market volatility.</li>
+  <li><strong>Model Consistency:</strong> The model's performance appears to be consistent throughout the entire time period represented in the graph. It exhibits consistent accuracy in both bullish and bearish market conditions, which indicates its robustness.</li>
+</ol>
+<p>In conclusion, the graph analysis reveals that the model has generally performed well in predicting the stock prices. It accurately captures the overall trend, demonstrates the ability to handle volatility, and is consistent in its performance. However, a few outliers and minor deviations from the actual values indicate potential areas for further refinement. Further analysis and investigations are recommended to understand the reasons behind these deviations and to enhance the model's accuracy in predicting the stock prices.</p>
+
+</div>
+</div>
+
+
+<section class = "container">
+
+
+
+
+<section class ="container" style ="background-color: antiquewhite; padding:10px; margin-bottom: 20px;">
+<div> 
+    <h5 style ="padding-top: 10px;"><b style ="border-bottom: 2px solid black;"> Conclusions </b></h5>
+<div style ="margin-bottom: 10px;">
+In conclusion, this project aimed to utilize LSTM (Long Short-Term Memory) neural networks for stock price prediction based on historical "Open" prices of Google stock. The project followed a series of steps to preprocess the data, design and train the LSTM model, and evaluate its performance.<br>
+
+The LSTM model demonstrated promising results, achieving a low Mean Absolute Error (MAE) value after training for a certain number of epochs. The MAE indicated a relatively small average difference between the predicted and actual stock prices, suggesting that the model has learned the underlying patterns and trends in the data.<br>
+
+By visualizing the plot between the actual and predicted stock prices, insights were gained into the model's accuracy and its ability to capture the overall trend and short-term fluctuations of the stock. The model exhibited consistency in performance and was capable of handling volatility in the stock market. However, outliers and minor deviations from the actual values were observed, indicating potential areas for further improvement.<br>
+
+Further analysis and investigations could be conducted to enhance the model's accuracy and address any limitations. This might include experimenting with different network architectures, exploring additional features or data sources, and fine-tuning hyperparameters. Additionally, comparing the model's performance with other evaluation metrics such as Mean Squared Error (MSE) or Root Mean Squared Error (RMSE) could provide a more comprehensive assessment.<br>
+
+Overall, the developed LSTM model has shown promise in predicting stock prices based on historical "Open" prices. This project contributes to the field of stock market analysis and decision-making by providing a framework for utilizing LSTM networks for forecasting stock prices. The findings and insights gained from this project can be valuable for traders, investors, and researchers interested in predicting and understanding stock market trends.<br>
+</div>
+
+
+
+
+</section>
+
+
+
+</section>
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div >
+
+  <footer class=" text-center text-lg-start text-white" style ="background-color: #023047;">
+    <!-- Grid container -->
+    
+   <div class = "d-flex justify-content-end" style ="padding:10px">
+   <a href ="newindex.html"><button class="btn btn-lg " style="background-color: #023047; color:antiquewhite">
+      Go Back to Mainpage
+    </button></a>
+
+</div>
+    
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      Tien Truong | Behavior Research | Machine Learning and Deep Learning
+      
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+</html>

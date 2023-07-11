@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Loan Status Prediction using Support Vector Machine: A Data-driven Approach for Financial Decision Making </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <style>
+    .image {
+        max-width: 100%;
+        width: 600px; /* Adjust this value as per your requirement */
+        height: auto;
+    }
+
+    @media (max-width: 600px) { /* Adjust the max-width as per your requirements */
+    .navbar-brand img {
+      width: 340px;
+      height:60px
+    }
+  }
+
+   @media (max-width: 480px) { /* Adjust the max-width as needed */
+    video {
+      width: 320px; /* Set the width to 100% for smaller screens */
+      height: 170px; /* Allow the height to adjust proportionally */
+    }
+  }
+
+   .navbar{
+    --bs-navbar-padding-x: 0px!important;
+    --bs-navbar-padding-y: 0px!important;
+}
+</style>
+  <body>
+
+    <nav class="navbar bg-body-tertiary" >
+  <div class="container-fluid" style ="background-color :#023047; color:white; padding:20px">
+    <a class="navbar-brand" href="#">
+      <img src="logo20.png" alt="Logo" width="490" height="90" class="d-inline-block align-text-top" >
+      
+    </a>
+  </div>
+</nav>
+
+    <section class = "container" style ="margin-top: 20px;" >
+        <h2 style ="margin-bottom: 20px;"> Loan Status Prediction using Support Vector Machine: A Data-driven Approach for Financial Decision Making </h2>
+        <hr >
+        <h3 > Introduction </h3>
+        <p>
+<div style ="margin-bottom: 10px;">
+The aim of this project is to develop a machine learning model that predicts housing prices in California based on the California housing dataset. The dataset contains various features related to houses in different locations across California, such as median income, house age, average number of rooms and bedrooms, population, and geographical coordinates. <br>
+</div>
+
+
+
+
+      
+
+<h3 style ="margin-top: 20px;"> Data Description</h3>
+<div style ="margin-bottom: 10px;">
+The dataset used for this project is obtained from Kaggle and is titled "Loan Predication." It consists of historical loan application data with several input features and the corresponding loan status for each application. The dataset provides valuable information such as the applicant's income, credit history, employment status, loan amount, and other relevant factors. The loan status column indicates whether the loan application was approved or rejected.<br>
+The provided dataset contains information related to loan applicants in the insurance domain. It consists of 615 rows and 13 columns, representing various customer details and loan-related variables. The dataset aims to facilitate the automation of the loan eligibility process based on the information provided by customers while filling out the online application form.<br>
+
+The features present in the dataset are as follows:
+
+<ol>
+  <li><strong>Gender:</strong> This column represents the gender of the loan applicant (Male or Female).</li>
+  <li><strong>Marital Status:</strong> This column indicates the marital status of the applicant (Married, Single, Divorced, or Widowed).</li>
+  <li><strong>Education:</strong> This column describes the educational background of the applicant (Graduate or Not Graduate).</li>
+  <li><strong>Number of Dependents:</strong> This column denotes the number of dependents the applicant has (0, 1, 2, or 3+).</li>
+  <li><strong>Income:</strong> This column represents the applicant's income in monetary units.</li>
+  <li><strong>Loan Amount:</strong> This column specifies the loan amount applied for by the customer.</li>
+  <li><strong>Credit History:</strong> This column indicates the credit history of the applicant (1 denotes a good credit history, 0 denotes a bad credit history).</li>
+  <li><strong>Property Area:</strong> This column describes the location of the property for which the loan is being applied (Rural, Semiurban, or Urban).</li>
+  <li><strong>Loan Status:</strong> This column represents the final status of the loan application (Y denotes approved, N denotes rejected).</li>
+</ol>
+</div>
+
+<h3 style ="margin-top: 20px;"> Project Steps </h3>
+<div style ="margin-bottom: 10px;">
+
+<ol>
+  <li><strong>Data Acquisition:</strong> Obtain the loan dataset from the provided source (e.g., Kaggle). Download the dataset or load it directly into your programming environment.</li>
+  <li><strong>Data Exploration:</strong> Perform an initial exploration of the dataset to understand its structure, features, and potential challenges. Examine the columns, check for missing values, and gain insights into the distribution and characteristics of the data.</li>
+  <li><strong>Data Preprocessing:</strong> Clean the dataset by handling missing values, outliers, and any inconsistencies. Convert categorical variables into numerical representations using techniques such as one-hot encoding or label encoding. Normalize or scale numerical features if necessary.</li>
+  <li><strong>Exploratory Data Analysis (EDA):</strong> Conduct a comprehensive analysis of the dataset to understand the relationships between variables. Visualize the data using plots, histograms, and statistical summaries to gain insights into patterns, correlations, and potential influential factors.</li>
+  <li><strong>Feature Engineering:</strong> Identify opportunities for feature engineering, such as creating new features based on domain knowledge or combining existing features to capture additional information. This step can help enhance the predictive power of the model.</li>
+  <li><strong>Data Split:</strong> Split the dataset into training and testing sets. The training set will be used to train the SVM model, while the testing set will evaluate its performance and generalization.</li>
+  <li><strong>Model Development:</strong> Choose the SVM algorithm for loan status prediction. Define the appropriate SVM kernel (e.g., linear, polynomial, or radial basis function) and tune the hyperparameters to optimize the model's performance. Fit the SVM model on the training data.</li>
+  <li><strong>Model Evaluation:</strong> Evaluate the trained model using various evaluation metrics, including accuracy, precision, recall, F1-score, and confusion matrix. Analyze the results to assess the model's performance in predicting loan statuses.</li>
+</ol>
+
+</div>
+
+    </section>
+
+    <div class = "container">
+     <h3 style ="margin-top: 20px;"> Classification Report</h3>
+   
+    <img src="loan2.png" style="max-width: 100%">
+     <div style ="margin-bottom: 10px;">
+
+
+  
+  <p>The evaluation metrics provide insights into the performance of the SVM model for loan status prediction. Here is an analysis of the metrics:</p>
+  <ul>
+    <li><strong>Precision:</strong> Precision is a measure of the model's ability to correctly identify positive predictions (loan applications approved) out of the total predicted positive cases. The precision for class 0 (rejected loans) is 0.43, indicating that 43% of the predicted rejected loans were correct. For class 1 (approved loans), the precision is 0.98, indicating a high level of accuracy in identifying approved loans.</li>
+    <li><strong>Recall:</strong> Recall, also known as sensitivity or true positive rate, measures the model's ability to identify the actual positive cases (loan applications approved) out of the total positive cases. The recall for class 0 is 0.89, indicating that the model successfully identified 89% of the actual rejected loans. The recall for class 1 is 0.79, indicating that the model captured 79% of the actual approved loans.</li>
+    <li><strong>F1-score:</strong> The F1-score is the harmonic mean of precision and recall, providing a balanced measure of the model's accuracy. The F1-score for class 0 is 0.58, which indicates a moderate balance between precision and recall for rejected loans. For class 1, the F1-score is 0.88, indicating a high level of accuracy and balance between precision and recall for approved loans.</li>
+    <li><strong>Support:</strong> The support column represents the number of samples in each class (0 and 1). In this case, there are 18 samples for class 0 (rejected loans) and 102 samples for class 1 (approved loans).</li>
+    <li><strong>Accuracy:</strong> The overall accuracy of the model is 0.81, indicating that the model correctly classified 81% of the loan applications in the testing set.</li>
+    <li><strong>Macro Avg:</strong> The macro average calculates the average performance of the model across both classes, giving equal weight to each class. The macro average precision, recall, and F1-score are 0.70, 0.84, and 0.73, respectively.</li>
+    <li><strong>Weighted Avg:</strong> The weighted average calculates the average performance, considering the number of samples in each class. The weighted average precision, recall, and F1-score are 0.89, 0.81, and 0.83, respectively.</li>
+  </ul>
+  <p>Overall, the model shows reasonably good performance in predicting loan status. It achieves high precision, recall, and F1-score for approved loans (class 1), indicating its effectiveness in identifying successful loan applications. However, there is room for improvement in accurately identifying rejected loan applications (class 0), as indicated by the lower precision, recall, and F1-score.</p>
+
+    
+    </div>
+
+
+
+    </div>
+
+
+
+
+<section class = "container">
+
+
+
+
+<section class ="container" style ="background-color: antiquewhite; padding:10px; margin-bottom: 20px;">
+<div> 
+    <h5 style ="padding-top: 10px;"><b style ="border-bottom: 2px solid black;"> Conclusions </b></h5>
+<div style ="margin-bottom: 10px;">
+In this project, I developed a Support Vector Machine (SVM) model to predict the loan status of applicants based on various customer details. The model was trained on a dataset containing information such as gender, marital status, education, income, loan amount, credit history, and property area.<br>
+
+After evaluating the SVM model's performance on a testing set, I observed the following results: The model achieved a reasonably high accuracy of 81%, correctly classifying 81% of the loan applications. The precision for approved loans (class 1) was 0.98, indicating a high level of accuracy in identifying successful loan applications. However, the precision for rejected loans (class 0) was lower at 0.43, suggesting room for improvement in accurately identifying rejected loan applications.<br>
+
+The recall for rejected loans was 0.89, indicating that the model successfully identified 89% of the actual rejected loans. The recall for approved loans was 0.79, suggesting that the model captured 79% of the actual approved loans. The F1-score, which balances precision and recall, was 0.58 for rejected loans and 0.88 for approved loans.<br>
+
+Overall, the SVM model demonstrated good performance in predicting loan statuses, particularly for approved loans. However, there is a need for further improvement in correctly identifying rejected loan applications. This can be achieved through refining the model, exploring additional feature engineering techniques, or employing more advanced machine learning algorithms.<br>
+
+The developed SVM model provides a foundation for automating the loan eligibility process, allowing the company to target specific customer segments eligible for loan amounts. By leveraging data science and analytics, financial institutions can streamline their loan approval processes, reduce manual effort, and make informed decisions while improving operational efficiency and customer satisfaction.<br>
+
+Further enhancements and iterations can be made to the model, such as collecting additional data, refining the feature selection process, or exploring ensemble methods. Continual monitoring and updating of the model will ensure its effectiveness in adapting to changing customer behaviors and market dynamics.<br>
+
+Overall, this project highlights the significance of analytics and data science in the insurance industry, specifically in automating loan eligibility processes. By leveraging the power of machine learning algorithms like SVM, financial institutions can make data-driven decisions, enhance risk assessment, and optimize resource allocation, ultimately leading to improved operational efficiency and better customer experiences.<br>
+</div>
+
+
+
+
+</section>
+
+
+
+</section>
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div >
+
+  <footer class=" text-center text-lg-start text-white" style ="background-color: #023047;">
+    <!-- Grid container -->
+    
+   <div class = "d-flex justify-content-end" style ="padding:10px">
+   <a href ="newindex.html"><button class="btn btn-lg " style="background-color: #023047; color:antiquewhite">
+      Go Back to Mainpage
+    </button></a>
+
+</div>
+    
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      Tien Truong | Behavior Research | Machine Learning and Deep Learning
+      
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+</html>
